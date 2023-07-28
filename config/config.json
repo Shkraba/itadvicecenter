@@ -1,0 +1,29 @@
+{
+  "site": {
+    "title": "IT Advice Center: Simplifying Coding and Making Technology Easy",
+    "base_url": "/",
+    "favicon": "/images/icon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "234",
+    "logo_height": "76",
+    "logo_text": "It advance center logo"
+  },
+
+  "settings": {
+    "pagination": 3,
+    "summary_length": 200,
+    "blog_folder": "posts"
+  },
+
+  "params": {
+    "tag_manager_id": "",
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2023 Coding Made Simple"
+  },
+
+  "metadata": {
+    "meta_author": "Yurii Shkraba",
+    "meta_image": "",
+    "meta_description": "Yurii's Shkraba Blog"
+  }
+}
