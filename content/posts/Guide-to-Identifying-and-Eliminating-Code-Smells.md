@@ -11,24 +11,6 @@ draft: false
 
 > Clean code is the foundation of a maintainable and efficient software project. However, over time, codebases can become cluttered with code smells, indicating potential design flaws and poor implementation choices. In this blog post, we will explore common code smells in .NET C# and provide practical examples and solutions to help you write cleaner and more maintainable code.
 
-```bash
-#!/bin/bash
-
-# Push to projects directory with an absolute path
-pushd ~/Documents/projects
-
-# Run create-react-app in projects directory
-yarn create react-app "$1"
-
-# Move inside the new project folder with a relative path
-pushd "$1"
-
-# Open project in VS Code
-code .
-
-# Start server
-yarn start
-```
 
 #### What are Code Smells?
 Code smells are indicators of potential problems in software code. They are not bugs but rather signs that the code may be poorly structured or lack design elegance. These smells often make code harder to read, understand, and maintain.
@@ -43,7 +25,7 @@ Code reviews, static analysis tools like (SonarQube, Checkmarx), and frequent re
 Let's consider a new examples of code smell:
 
 ##### Long Method
-```C#
+```csharp
 public decimal CalculateProductPrice(Product product, Customer customer)
 {
     decimal price = 0;
@@ -85,7 +67,7 @@ public decimal CalculateProductPrice(Product product, Customer customer)
 
 ```
 ###### Resolution:
-``` C#
+``` csharp
 public decimal CalculateProductPrice(Product product, Customer customer)
 {
     if (product.Type == ProductType.Standard)
@@ -121,7 +103,7 @@ private decimal CalculateSpecialProductPrice(Product product, Customer customer)
 ```
 
 ##### Long Parameter List:
-``` C#
+``` csharp
 public void CreateOrder(string customerName, string address, string city, string postalCode, string country, DateTime orderDate, List<Product> products)
 {
     // Creation logic
@@ -130,7 +112,7 @@ public void CreateOrder(string customerName, string address, string city, string
 ```
 ###### Resolution:
 
-``` C#
+``` csharp
 public class Order
 {
     public string CustomerName { get; set; }
@@ -151,7 +133,7 @@ public void CreateOrder(Order order)
 
 ##### Duplicated Code
 
-``` C#
+``` csharp
 
 public double CalculateAreaOfRectangle(double width, double height)
 {
@@ -165,7 +147,7 @@ public double CalculateAreaOfSquare(double side)
 ```
 
 ###### Resolution:
-``` C#
+``` csharp
 public double CalculateArea(double dimension1, double dimension2 = 0)
 {
     return dimension1 * (dimension2 == 0 ? dimension1 : dimension2);
@@ -177,7 +159,7 @@ public double CalculateArea(double dimension1, double dimension2 = 0)
 In this example, we will refactor huge switch block in a C# application. The switch block contains multiple cases, making the code difficult to maintain and violating the Open/Closed Principle. To refactor the code, we will apply Behavioral Patterns, specifically the Strategy Pattern and Command Pattern, to achieve a more flexible and extensible design.
 
 Consider an application that processes different types of requests
-``` C#
+``` csharp
 public class RequestProcessor
 {
     public void ProcessRequest(Request request)
@@ -202,7 +184,7 @@ public class RequestProcessor
 }
 ```
 We will start by implementing the Strategy Pattern to decouple the processing logic for each request type into separate classes.
-``` C#
+``` csharp
 
 // Interface for request processing strategies
 public interface IRequestStrategy
@@ -238,7 +220,7 @@ public class DataProcessingStrategy : IRequestStrategy
 
 Next, we will implement the Command Pattern to encapsulate the request processing strategies.
 
-``` C#
+``` csharp
 public class RequestProcessorCommand
 {
     private readonly IRequestStrategy _strategy;
@@ -256,7 +238,7 @@ public class RequestProcessorCommand
 ```
 Finally, we refactor the RequestProcessor class to utilize the Command Pattern and eliminate the huge switch block.
 
-``` C#
+``` csharp
 public class RequestProcessor
 {
     private readonly Dictionary<RequestType, IRequestStrategy> _strategyMap;

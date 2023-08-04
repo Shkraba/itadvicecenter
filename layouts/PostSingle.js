@@ -1,28 +1,15 @@
 import Share from "@components/Share";
 import dateFormat from "@lib/utils/dateFormat";
-import similerItems from "@lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
-import SimilarPosts from "@partials/SimilarPosts";
 import Image from "next/image";
 import Link from "next/link";
-import dark from "../syntaxTheme";
-import ReactMarkdown from "react-markdown";
-import { PrismAsync as SyntaxHighlighter } from "react-syntax-highlighter";
-
-const CodeBlock = ({ language, value }) => {
-  return (
-    <SyntaxHighlighter style={dark} language={language}>
-      {value}
-    </SyntaxHighlighter>
-  );
-};
-
+import { MDXRemote } from "next-mdx-remote";
+import shortcodes from "@shortcodes/all";
 
 const PostSingle = ({ post, posts,  slug }) => {
   const { frontmatter, content, mdxContent } = post;
   let { description, title, date, image, categories, tags } = frontmatter;
   description = description ? description : content.slice(0, 120);
-  const similarPosts = similerItems(post, posts, slug);
 
   return (
     <>
@@ -59,11 +46,8 @@ const PostSingle = ({ post, posts,  slug }) => {
                 className="rounded-lg"
               />
             )}
-            <div className="content mb-16 text-left">
-              {/* Render the Markdown content using react-markdown */}
-              <ReactMarkdown renderers={{ code: CodeBlock }}>
-                {content}
-              </ReactMarkdown>
+           <div className="content mb-16 text-left">
+              <MDXRemote {...mdxContent} components={shortcodes} />
             </div>
             {/* Render the tags */}
             <div className="flex flex-wrap items-center justify-between">
