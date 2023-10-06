@@ -1,5 +1,5 @@
 ---
-title: "Hi, I’m Yurii Shkraba, Senior Full Stack developer"
+title: ""
 meta_title: "About"
 image: "/images/author.jpg"
 layout: "about"
@@ -12,7 +12,7 @@ social:
   instagram: "https://www.instagram.com"
 ---
 
-Here, I will be sharing my knowledge and insights through articles on various topics related to web development and technology. As an experienced Full-stack web developer with over 10 years of industry experience, I am excited to provide valuable content that can benefit both beginners and seasoned professionals in the field.
+Hi, my name is Yuriy. In this blog I will sharing my knowledge and insights through articles on various topics related to web development and technology. As an experienced Full-stack web developer with over 10 years of industry experience, I am excited to provide valuable content that can benefit both beginners and seasoned professionals in the field.
 
 Throughout my career, I have worked extensively with technologies such as .NET C#, React, Angular, and Azure. This diverse skill set has allowed me to tackle a wide range of projects and gain a deep understanding of the intricacies involved in developing robust web applications. Whether it's back-end development, front-end design, or cloud integration, I have hands-on experience and insights to share.
 
